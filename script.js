@@ -18,4 +18,3 @@ function operate(firstNumber, secondNumber, operator) {
      null;
 }
 
-console.log(operate(3, 3, '/'));
