@@ -1,16 +1,20 @@
 // Basic Function
-function add(a, b) {
-    return a + b;
+const add = (a, b) => a + b;
+const subtract = (a, b) => a - b;
+const multiply = (a, b) => a * b;
+const devide = (a, b) => a / b;
+
+//Variables
+let firstNumber;
+let operator;
+let secondNumber;
+
+//Operate Function
+function operate(firstNumber, secondNumber, operator) {
+    if (operator === '+') return add(firstNumber, secondNumber);
+    if (operator === '-') return subtract(firstNumber, secondNumber);
+    if (operator === '*') return multiply(firstNumber, secondNumber);
+    if (operator === '+') return add(firstNumber, secondNumber);
 }
 
-function subtract(a, b) {
-    return a - b;
-}
-
-function multiply(a, b) {
-    return a * b;
-}
-
-function devide(a, b) {
-    return a / b;
-}
+console.log(operate(3, 3, '+'));
