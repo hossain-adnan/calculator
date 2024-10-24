@@ -11,10 +11,11 @@ let secondNumber;
 
 //Operate Function
 function operate(firstNumber, secondNumber, operator) {
-    if (operator === '+') return add(firstNumber, secondNumber);
-    if (operator === '-') return subtract(firstNumber, secondNumber);
-    if (operator === '*') return multiply(firstNumber, secondNumber);
-    if (operator === '+') return add(firstNumber, secondNumber);
+    return (operator === '+') ? add(firstNumber, secondNumber):
+     (operator === '-') ? subtract(firstNumber, secondNumber):
+     (operator === '*') ? multiply(firstNumber, secondNumber):
+     (operator === '/') ? devide(firstNumber, secondNumber):
+     null;
 }
 
-console.log(operate(3, 3, '+'));
+console.log(operate(3, 3, '/'));
