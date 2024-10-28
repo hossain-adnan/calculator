@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+*{
+    font-family: DotGothic16, sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outerShell{
+    /* background-color: rgb(221, 212, 204); */
+    background-color: #e5e5e5;
+    padding: 20px;
+    border: 1px solid rgb(53, 44, 46);
+    border-radius: 5px;
+}
+
+.screen {
+    color: rgb(60, 69, 51);
+    /* background-color: rgb(143, 163, 126); */
+    height: 50px;
+    margin-bottom: 20px;
+    font-size:40px;
+    /* border: 2px solid gray; */
+}
+
+.buttonRow{
+    display: flex;
+}
+
+button {
+    height: 60px;
+    width: 60px;
+    font-size: large;
+    color: rgb(53, 44, 46);
+    /* background-color: rgb(233, 224, 214);
+    color: rgb(53, 44, 46);
+    font-size: larger;
+    font-weight: 500;
+    border: 1px solid rgb(12, 15, 14); */
+}
+
+#equals {
+    flex: 1;
+    /* background-color: rgb(232, 83, 83); */
+    /* color: #e5e5e5; */
+}
+
