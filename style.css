@@ -19,7 +19,7 @@ html, body {
     /* background-color: rgb(221, 212, 204); */
     background-color: #e5e5e5;
     padding: 20px;
-    border: 1px solid rgb(53, 44, 46);
+    border: 1px solid #4f4f4f;
     border-radius: 5px;
 }
 
@@ -29,6 +29,7 @@ html, body {
     height: 50px;
     margin-bottom: 20px;
     font-size:40px;
+    text-align: end;
     /* border: 2px solid gray; */
 }
 
