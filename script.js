@@ -24,7 +24,7 @@ let arrForScreen = [];
 let displayValue; //type -> number
 
 
-const equals = document.querySelector('.equals')
+const equals = document.querySelector('#equals')
 
 equals.addEventListener('click', () => {
     //stores inside the var secondOperand
