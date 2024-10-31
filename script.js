@@ -21,7 +21,19 @@ function operate(firstOperand, secondOperand, operator) {
 //Write on Screen
 const screen = document.querySelector('.screen');
 let arrForScreen = [];
-let displayValue;
+let displayValue; //type -> number
+
+
+const equals = document.querySelector('.equals')
+
+equals.addEventListener('click', () => {
+    //stores inside the var secondOperand
+    // secondOperand = displayValue;
+    let solution = operate(1, 2, '+');
+    //Show Solution on the display
+    console.log(operate);
+    screen.textContent = solution;
+})
 
 const one = document.querySelector('#one'); //for 1
 one.addEventListener('click', () => {
@@ -30,6 +42,7 @@ one.addEventListener('click', () => {
     screen.textContent = displayValue;
 })
 
+//Type other numbers for the secondOperand
 const two = document.querySelector('#two'); //for 2
 two.addEventListener('click', () => {
     arrForScreen.push(2);
@@ -37,20 +50,26 @@ two.addEventListener('click', () => {
     screen.textContent = displayValue;
 })
 
+//When any operator is clicked
+let operatorRef = document.querySelector('.add'); //for add +
+operatorRef.addEventListener('click', () => {
 
-//Reloads
-    //Keep typing numbers --> 
-        //stores inside the var firstOperand
-    //Press any Operators 
-        //stops storing inside the var firstOperand
-            //firstOperand = displayValue;
-            //displayValue = null;
-        //stores the value of the operator
-            //operator.textContent = button pressed as string;    
-    //Type other numbers
-        //stores inside the var secondOperand
-            //secondOperand = displayValue;
+    //stops storing inside the var firstOperand
+    firstOperand = displayValue;
+    displayValue = null;
+
+    //stores the value of the operator
+    operator.textContent = '+' // operatorRef.value;
+    screen.textContent = '+' ;
+
+    // //Type other numbers for the secondOperand
+    // const two = document.querySelector('#two'); //for 2
+    // two.addEventListener('click', () => {
+    //     arrForScreen.push(2);
+    //     displayValue = +(arrForScreen.join(''));
+    //     screen.textContent = displayValue; })
+})
+
     //type equal
-        //let solution = operate(firstOperand, secondOperand, operator)
-        //Show Solution on the display
-            //screen.textContent = solution;
+
+   
