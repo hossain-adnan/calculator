@@ -13,34 +13,41 @@ function operate(firstOperand, secondOperand, operator) {
      null;
 }
 
-//Buttons
-const one = document.querySelector('#one'); 
-const two = document.querySelector('#two'); 
-
 //Variables
 let firstOperand;
 let operator;
 let secondOperand;
 
-//Write on Screen
-let pressedEquals = false;
 let pressedOperator = false;
+let pressedEquals = false;
 
+//Write on Screen
 const screen = document.querySelector('.screen');
 
 let operandArray = [];
 let operandValue; //type -> number
 
-if (!pressedOperator) {
-
-    one.addEventListener('click', () => {
-        operandArray.push(1);
-        operandValue = +(operandArray.join(''));
-        screen.textContent = operandValue;
-
+const one = document.querySelector('#one');  
+one.addEventListener('click', () => {
+    operandArray.push(1);
+    operandValue = +(operandArray.join(''));
+    screen.textContent = operandValue;
+    if (!pressedOperator) {
         firstOperand = operandValue;
-    })
+    } else {
+        secondOperand = operandValue;
+    }
+    
+    console.log(`firstOperand: ${firstOperand}`);
+    console.log(`secondOperand: ${secondOperand}`);
+    console.log(pressedOperator);
+})
 
+
+
+
+
+    const two = document.querySelector('#two');
     two.addEventListener('click', () => {
         operandArray.push(2);
         operandValue = +(operandArray.join(''));
@@ -48,9 +55,11 @@ if (!pressedOperator) {
 
         firstOperand = operandValue;
     })
-} 
+
 
 if (pressedOperator) {
+
+    const one = document.querySelector('#one'); 
     one.addEventListener('click', () => {
         operandArray.push(1);
         operandValue = +(operandArray.join(''));
@@ -58,11 +67,12 @@ if (pressedOperator) {
 
         secondOperand = operandValue;
 
-        // console.log(operandArray);
+        console.log(operandArray);
         // console.log(operandValue);
         console.log(secondOperand);
     })
 
+    const two = document.querySelector('#two');
     two.addEventListener('click', () => {
         operandArray.push(2);
         operandValue = +(operandArray.join(''));
@@ -88,8 +98,8 @@ operatorRef.addEventListener('click', () => {
 const equals = document.querySelector('#equals')
 
 equals.addEventListener('click', () => {
-    console.log(`first: ${firstOperand}`);
-    console.log(`second: ${secondOperand}`);
+    console.log(`firstOperand: ${firstOperand}`);
+    console.log(`secondOperand: ${secondOperand}`);
     console.log(`operator: ${operator}`);
 
     let solution = operate(firstOperand, secondOperand, operator);
