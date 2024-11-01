@@ -46,6 +46,28 @@ if (!pressedOperator) {
         operandValue = +(operandArray.join(''));
         screen.textContent = operandValue;
 
+        firstOperand = operandValue;
+    })
+} 
+
+if (pressedOperator) {
+    one.addEventListener('click', () => {
+        operandArray.push(1);
+        operandValue = +(operandArray.join(''));
+        screen.textContent = operandValue;
+
+        secondOperand = operandValue;
+
+        // console.log(operandArray);
+        // console.log(operandValue);
+        console.log(secondOperand);
+    })
+
+    two.addEventListener('click', () => {
+        operandArray.push(2);
+        operandValue = +(operandArray.join(''));
+        screen.textContent = operandValue;
+
         secondOperand = operandValue;
     })
 }
@@ -55,31 +77,25 @@ if (!pressedOperator) {
 let operatorRef = document.querySelector('#add');
 
 operatorRef.addEventListener('click', () => {
-
-    operandValue = null;
     pressedOperator = true;
-
-    //stores the value of the operator
-    operator = '+' // operatorRef.value;
-    screen.textContent = '+' ;
-
-    console.log(operandValue);
-    console.log(pressedOperator);
+    operandArray = [];
+    operator = '+';
     console.log(operator);
+    screen.textContent = '+' ;
 })
 
 //type equal
 const equals = document.querySelector('#equals')
 
 equals.addEventListener('click', () => {
-    //stores inside the var secondOperand
-    // secondOperand = operandValue;
-    let solution = operate(firstOperand, secondOperand, '+');
-    //Show Solution on the display
-    console.log(operate);
+    console.log(`first: ${firstOperand}`);
+    console.log(`second: ${secondOperand}`);
+    console.log(`operator: ${operator}`);
 
-    screen.textContent = '';
-    // screen.textContent = solution;
+    let solution = operate(firstOperand, secondOperand, operator);
+    //Show Solution on the display
+    screen.textContent = solution;
+
 })
 
    
