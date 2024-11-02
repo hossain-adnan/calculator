@@ -1,4 +1,3 @@
-
 //Variables
 let firstOperand;
 let operator;
@@ -12,7 +11,7 @@ let pressedEquals = false;
 //Write on Screen
 const screen = document.querySelector('.screen');
 
-//When any number is clicked
+//Number is clicked
 const numbers = document.querySelectorAll('.number');  
 
 numbers.forEach(number => number.addEventListener('click', (e) => {
@@ -34,7 +33,7 @@ numbers.forEach(number => number.addEventListener('click', (e) => {
     }
 }))
 
-//When any operator is clicked
+//Operator is clicked
 let operatorRef = document.querySelectorAll('.operator');
 
 operatorRef.forEach(element => element.addEventListener('click', (e) => {
@@ -47,13 +46,14 @@ operatorRef.forEach(element => element.addEventListener('click', (e) => {
     screen.textContent = operator;
 }));
 
-//type equal
+//Equal is pressed
 const equals = document.querySelector('#equals')
 
 equals.addEventListener('click', () => {
     console.log(`firstOperand: ${firstOperand}`);
     console.log(`secondOperand: ${secondOperand}`);
     console.log(`operator: ${operator}`);
+    console.log(`screen: ${screen.textContent}`)
 
     pressedEquals = true;
 
@@ -61,6 +61,14 @@ equals.addEventListener('click', () => {
     //Show Solution on the display
     screen.textContent = solution;
 
+})
+
+// AC
+const autoClear = document.querySelector('#ac');
+autoClear.addEventListener('click', () => {
+    firstOperand = null;
+    secondOperand = null;
+    screen.textContent = '';
 })
 
 //Basic Function
