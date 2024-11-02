@@ -3,6 +3,8 @@
 let firstOperand;
 let operator;
 let secondOperand;
+let operandArray = [];
+let operandValue; //type -> number
 
 let pressedOperator = false;
 let pressedEquals = false;
@@ -10,11 +12,10 @@ let pressedEquals = false;
 //Write on Screen
 const screen = document.querySelector('.screen');
 
-let operandArray = [];
-let operandValue; //type -> number
+//When any number is clicked
+const numbers = document.querySelectorAll('.number');  
 
-const one = document.querySelector('#one');  
-one.addEventListener('click', (e) => {
+numbers.forEach(number => number.addEventListener('click', (e) => {
     operandArray.push(e.target.value);
     operandValue = +(operandArray.join(''));
 
@@ -25,7 +26,7 @@ one.addEventListener('click', (e) => {
     } else {
         secondOperand = operandValue;
     }
-})
+}))
 
 //When any operator is clicked
 let operatorRef = document.querySelectorAll('.operator');
@@ -33,9 +34,11 @@ let operatorRef = document.querySelectorAll('.operator');
 operatorRef.forEach(element => element.addEventListener('click', (e) => {
     pressedOperator = true; //Use function
     operandArray = [];
+    operandValue = null;
+
     operator = e.target.value;
     console.log(operator);
-    screen.textContent = e.target.value;
+    screen.textContent = operator;
 }));
 
 //type equal
