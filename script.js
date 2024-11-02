@@ -16,6 +16,11 @@ const screen = document.querySelector('.screen');
 const numbers = document.querySelectorAll('.number');  
 
 numbers.forEach(number => number.addEventListener('click', (e) => {
+    if(pressedEquals === true){
+        operandArray = [];
+        // firstOperand = null;
+    }
+
     operandArray.push(e.target.value);
     operandValue = +(operandArray.join(''));
 
@@ -25,6 +30,7 @@ numbers.forEach(number => number.addEventListener('click', (e) => {
         firstOperand = operandValue;
     } else {
         secondOperand = operandValue;
+        pressedOperator = false;
     }
 }))
 
@@ -48,6 +54,8 @@ equals.addEventListener('click', () => {
     console.log(`firstOperand: ${firstOperand}`);
     console.log(`secondOperand: ${secondOperand}`);
     console.log(`operator: ${operator}`);
+
+    pressedEquals = true;
 
     let solution = operate(firstOperand, secondOperand, operator);
     //Show Solution on the display
