@@ -4,6 +4,7 @@ let operator;
 let secondOperand;
 let operandArray = [];
 let operandValue; //type -> number
+let solution;
 
 let pressedOperator = false;
 let pressedEquals = false;
@@ -17,7 +18,6 @@ const numbers = document.querySelectorAll('.number');
 numbers.forEach(number => number.addEventListener('click', (e) => {
     if(pressedEquals === true){
         operandArray = [];
-        // firstOperand = null;
     }
 
     operandArray.push(e.target.value);
@@ -53,22 +53,29 @@ equals.addEventListener('click', () => {
     console.log(`firstOperand: ${firstOperand}`);
     console.log(`secondOperand: ${secondOperand}`);
     console.log(`operator: ${operator}`);
-    console.log(`screen: ${screen.textContent}`)
 
     pressedEquals = true;
 
-    let solution = operate(firstOperand, secondOperand, operator);
+    solution = operate(firstOperand, secondOperand, operator);
+
     //Show Solution on the display
     screen.textContent = solution;
-
+    console.log(`screen: ${screen.textContent}`)
 })
 
-// AC
+// AC button
 const autoClear = document.querySelector('#ac');
 autoClear.addEventListener('click', () => {
     firstOperand = null;
     secondOperand = null;
     screen.textContent = '';
+})
+
+//Percentage
+const percentage = document.querySelector('#percentage')
+percentage.addEventListener('click', () => {
+    let percent = (+(screen.textContent)/100);
+    screen.textContent = percent;
 })
 
 //Basic Function
