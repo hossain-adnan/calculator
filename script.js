@@ -16,9 +16,10 @@ const screen = document.querySelector('.screen');
 const numbers = document.querySelectorAll('.number');  
 
 numbers.forEach(number => number.addEventListener('click', (e) => {
-    if(pressedEquals === true){
-        operandArray = [];
-    }
+
+    // if(pressedEquals === true){
+    //     operandArray = [];
+    // }
 
     operandArray.push(e.target.value);
     operandValue = +(operandArray.join(''));
@@ -55,6 +56,7 @@ equals.addEventListener('click', () => {
     console.log(`operator: ${operator}`);
 
     pressedEquals = true;
+    operandArray = []; // Debug not showing more than 1 digit line 21
 
     solution = operate(firstOperand, secondOperand, operator);
 
