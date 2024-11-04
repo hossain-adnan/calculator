@@ -18,26 +18,31 @@ const numbers = document.querySelectorAll('.number');
 numbers.forEach(number => number.addEventListener('click', (e) => {
 
     // if(pressedEquals === true){
-    //     operandArray = [];
+    //     operandArray = []; // line 62
     // }
 
     operandArray.push(e.target.value);
     operandValue = +(operandArray.join(''));
 
     screen.textContent = operandValue;
+    // console.log(`firstOperand: ${firstOperand}`);
+    // console.log(`secondOperand: ${secondOperand}`);
 
     if (pressedOperator === false) {
         firstOperand = operandValue;
     } else {
         secondOperand = operandValue;
-        pressedOperator = false;
+        // pressedOperator = false; 
     }
+    // console.log(`firstOperand: ${firstOperand}`);
+    // console.log(`secondOperand: ${secondOperand}`);
 }))
 
 //Operator is clicked
 let operatorRef = document.querySelectorAll('.operator');
 
 operatorRef.forEach(element => element.addEventListener('click', (e) => {
+
     pressedOperator = true; //Use function
     operandArray = [];
     operandValue = null;
@@ -45,6 +50,8 @@ operatorRef.forEach(element => element.addEventListener('click', (e) => {
     operator = e.target.value;
     console.log(operator);
     screen.textContent = operator;
+
+    console.log(`firstOperand:${firstOperand}`);
 }));
 
 //Equal is pressed
@@ -63,6 +70,8 @@ equals.addEventListener('click', () => {
     //Show Solution on the display
     screen.textContent = solution;
     console.log(`screen: ${screen.textContent}`)
+
+    pressedOperator = false; 
 })
 
 // AC button
