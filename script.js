@@ -38,6 +38,22 @@ numbers.forEach(number => number.addEventListener('click', (e) => {
     // console.log(`secondOperand: ${secondOperand}`);
 }))
 
+// Negative sign
+const sign = document.querySelector('#sign');
+sign.addEventListener('click', () => {
+    if(solution != null) {
+        solution = solution * (-1);
+        firstOperand = solution;
+        screen.textContent = firstOperand;
+    }else if(secondOperand != null) {
+        secondOperand = secondOperand * (-1);
+        screen.textContent = secondOperand;
+    } else {
+        firstOperand = firstOperand * (-1);
+        screen.textContent = firstOperand;
+    }
+})
+
 //Operator is clicked
 let operatorRef = document.querySelectorAll('.operator');
 
@@ -49,13 +65,13 @@ operatorRef.forEach(element => element.addEventListener('click', (e) => {
 
     operator = e.target.value;
     console.log(operator);
-    screen.textContent = operator;
+    screen.textContent = screen.textContent + operator;
 
     console.log(`firstOperand:${firstOperand}`);
 }));
 
 //Equal is pressed
-const equals = document.querySelector('#equals')
+const equals = document.querySelector('#equals');
 
 equals.addEventListener('click', () => {
     console.log(`firstOperand: ${firstOperand}`);
