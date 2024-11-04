@@ -78,7 +78,14 @@ equals.addEventListener('click', () => {
 const autoClear = document.querySelector('#ac');
 autoClear.addEventListener('click', () => {
     firstOperand = null;
+    operator = null;
     secondOperand = null;
+    operandArray = [];
+    operandValue = null;
+    solution = null;
+    pressedOperator = false;
+    pressedEquals = false;
+
     screen.textContent = '';
 })
 
