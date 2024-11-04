@@ -25,8 +25,6 @@ numbers.forEach(number => number.addEventListener('click', (e) => {
     operandValue = +(operandArray.join(''));
 
     screen.textContent = operandValue;
-    // console.log(`firstOperand: ${firstOperand}`);
-    // console.log(`secondOperand: ${secondOperand}`);
 
     if (pressedOperator === false) {
         firstOperand = operandValue;
@@ -34,8 +32,6 @@ numbers.forEach(number => number.addEventListener('click', (e) => {
         secondOperand = operandValue;
         // pressedOperator = false; 
     }
-    // console.log(`firstOperand: ${firstOperand}`);
-    // console.log(`secondOperand: ${secondOperand}`);
 }))
 
 // Negative sign
@@ -58,16 +54,17 @@ sign.addEventListener('click', () => {
 let operatorRef = document.querySelectorAll('.operator');
 
 operatorRef.forEach(element => element.addEventListener('click', (e) => {
-
-    pressedOperator = true; //Use function
+    pressedOperator = true;
     operandArray = [];
     operandValue = null;
+
+    if(firstOperand === null){
+        firstOperand = solution;
+    }
 
     operator = e.target.value;
     console.log(operator);
     screen.textContent = screen.textContent + operator;
-
-    console.log(`firstOperand:${firstOperand}`);
 }));
 
 //Equal is pressed
@@ -87,7 +84,9 @@ equals.addEventListener('click', () => {
     screen.textContent = solution;
     console.log(`screen: ${screen.textContent}`)
 
-    pressedOperator = false; 
+    pressedOperator = false; //Undo any operator pressed 
+    firstOperand = null;
+    secondOperand = null;
 })
 
 // AC button
