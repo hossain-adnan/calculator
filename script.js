@@ -78,16 +78,25 @@ equals.addEventListener('click', () => {
     pressedEquals = true;
     operandArray = []; // Debug not showing more than 1 digit line 21
 
-    solution = operate(firstOperand, secondOperand, operator);
+    let solutionStr = (operate(firstOperand, secondOperand, operator)).toFixed(2);
+    let solutionNum = parseFloat(solutionStr);
+    // let solutionString = initialSolution.toString();
 
+    if (solutionStr.replace('.', '').length > 6) { 
+        solution = solutionNum.toExponential(3);
+    } else if (!Number.isInteger(solutionNum)) {
+        solution = solutionNum;
+    } else {
+        solution = Math.trunc(solutionNum);
+    }
     //Show Solution on the display
     screen.textContent = solution;
-    console.log(`screen: ${screen.textContent}`)
+    console.log(`screen: ${screen.textContent}`);
 
     pressedOperator = false; //Undo any operator pressed 
     firstOperand = null;
     secondOperand = null;
-})
+});
 
 // AC button
 const autoClear = document.querySelector('#ac');
