@@ -34,6 +34,21 @@ numbers.forEach(number => number.addEventListener('click', (e) => {
     }
 }))
 
+//Point
+const point = document.querySelector('#point');
+point.addEventListener('click', (e) => {
+    if (!operandArray.includes('.')) { //only . is pressed once before pressing any operand
+        operandArray.push(e.target.value);
+        console.log(operandArray);
+
+        screen.textContent = operandArray.join(''); // to show . on screen doesn't work
+
+        operandValue = +(operandArray.join(''));
+        console.log(operandValue);
+    }
+    // screen.textContent = operandValue;
+})
+
 // Negative sign
 const sign = document.querySelector('#sign');
 sign.addEventListener('click', () => {
@@ -80,14 +95,13 @@ equals.addEventListener('click', () => {
 
     let solutionStr = (operate(firstOperand, secondOperand, operator)).toFixed(2);
     let solutionNum = parseFloat(solutionStr);
-    // let solutionString = initialSolution.toString();
 
     if (solutionStr.replace('.', '').length > 6) { 
-        solution = solutionNum.toExponential(3);
+        solution = solutionNum.toExponential(3); //scientific notation for large number
     } else if (!Number.isInteger(solutionNum)) {
-        solution = solutionNum;
+        solution = solutionNum; // up to two decimal places
     } else {
-        solution = Math.trunc(solutionNum);
+        solution = Math.trunc(solutionNum); //Integer case with no decimals
     }
     //Show Solution on the display
     screen.textContent = solution;
